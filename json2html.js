@@ -18,8 +18,8 @@ export default function json2html(data) {
     data.forEach(obj => {
         html += '<tr>';
         headers.forEach(header => {
-            // Add each cell, check if the object has the key, otherwise use an empty string
-            html += `<td>${obj[header] || ''}</td>`;
+            // Add each cell, ensuring 3 columns in each row
+            html += `<td>${header in obj ? obj[header] : ''}</td>`;
         });
         html += '</tr>';
     });
